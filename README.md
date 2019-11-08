@@ -22,25 +22,76 @@ turtle.showturtle() |	显示画笔的turtle形状
 
 ## 二、绘制简单图形
 
-**正方形**  ![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/%E6%AD%A3%E6%96%B9%E5%BD%A2.png)
+**正方形**  
+![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/%E6%AD%A3%E6%96%B9%E5%BD%A2.png)
 
-**正方形填充颜色**  ![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%A1%AB%E5%85%85%E9%A2%9C%E8%89%B2.png)
+**正方形填充颜色**  
+![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%A1%AB%E5%85%85%E9%A2%9C%E8%89%B2.png)
 
-**五角星**  ![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/%E4%BA%94%E8%A7%92%E6%98%9F.png)
+**五角星**  
+![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/%E4%BA%94%E8%A7%92%E6%98%9F.png)
 
-**八角形**  ![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/%E5%85%AB%E8%A7%92%E5%BD%A2.png)
+**八角形**  
+![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/%E5%85%AB%E8%A7%92%E5%BD%A2.png)
 
 ## 三、递归绘制雪花
 
+  **雪花的绘制，可以看作是三个完全相同部分的叠加**，所以只需要绘制出一个基本图形，其他的图形在此基础上旋转方向即可。
+  
+  **初始的图形（即0阶）是一条线段,每增加一阶，则将上一阶线段中间1/3的位置上画一个三角形**，代码如下：
+  
+```
+def snow(size , level):
+    #递归出口，如果阶数减为0，则只是绘制一个线段
+    if level == 0:
+        turtle.forward(size)
+    else:
+        #递归调用，线段长度减为原来的1/3，阶数减一，绘制降阶后的图形
+        snow(size/3, level-1)
+        #相左旋转60度，绘制第二个“儿子”的图形
+        turtle.left(60)
+        snow(size/3, level-1)
+        #向右旋转120度，绘制第三个“儿子”的图形
+        turtle.right(120)
+        snow(size/3, level-1)
+        #向左旋转60度，绘制第四个儿子的图形
+        turtle.left(60)
+        snow(size/3, level-1)
+``` 
+  
+**0阶图形**  
+![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/0%E9%98%B6.png)
 
-**0阶图形**  ![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/0%E9%98%B6.png)
+**1阶图形**  
+![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/%E4%B8%80%E9%98%B6.png)
 
-**1阶图形**  ![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/%E4%B8%80%E9%98%B6.png)
+**2阶图形**  
+![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/2%E9%98%B6.png)
 
-**2阶图形**  ![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/2%E9%98%B6.png)
+**3阶图形**  
+![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/3%E9%98%B6.png)
 
-**3阶图形**  ![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/3%E9%98%B6.png)
- 
+**则在上面的基础上，可以绘制雪花图案如下： ** 
+
+**1阶雪花**  
+![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/snow/1%E9%98%B6.png)
+
+**2阶雪花**  
+![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/snow/2%E9%98%B6.png)
+
+**3阶雪花**  
+![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/snow/3%E9%98%B6.png)
+
+**4阶雪花**  
+![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/snow/4%E9%98%B6.png)
+
+
+
+
+
+
+
+
 
 
 
