@@ -106,6 +106,7 @@ def snow(size , level):
         turtle.backward(size/2)
         #方向归位
         turtle.right(60)
+  '''  
   
   **9阶树的图形如下**  
   ![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/9%E9%98%B6%E6%A0%91.png)
