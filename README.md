@@ -85,13 +85,27 @@ def snow(size , level):
 **4阶雪花**  
 ![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/snow/4%E9%98%B6.png)
 
+## 四、递归绘制树
+  **使用递归算法绘制树的图形**,代码如下
+  '''
+  def tree(size, level):
+    if level == 1:
+        turtle.forward(size) #递归出口
+    else:
+        turtle.forward(size)
+        #开始画左半边的树
+        turtle.right(60)
+        #回退前递归
+        tree(size / 2, level - 1);
+        #回退
+        turtle.backward(size/2)
 
-
-
-
-
-
-
-
-
-
+        #绘制右半边树
+        turtle.left(120)
+        tree(size / 2, level-1)
+        turtle.backward(size/2)
+        #方向归位
+        turtle.right(60)
+  
+  **9阶树的图形如下**  
+  ![image](https://github.com/xuedengyue/Turtle_Drawing/blob/master/image/9%E9%98%B6%E6%A0%91.png)
